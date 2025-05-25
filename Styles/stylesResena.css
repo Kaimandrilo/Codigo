@@ -1,0 +1,53 @@
+.container {
+    background-color: #e5e3e3;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reseña {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-rating {
+    color: #ffd700;  /* Color dorado para el rating */
+}
+
+#formulario-reseña {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+}
+
+#reseña-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+#rating-input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#formulario-reseña button {
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#formulario-reseña button:hover {
+    background-color: #2563eb;
+}

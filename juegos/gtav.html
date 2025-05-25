@@ -1,0 +1,53 @@
+<!-- GTA V -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Grand Theft Auto V</title>
+    <link rel="stylesheet" href="/Codigo/Styles/stylesJuegos.css">
+</head>
+<body>
+    <div class="game-info-container">
+        <div class="game-cover">
+            <img src="/Codigo/Img/gtav.png" alt="GTA V">
+        </div>
+        <div class="game-details">
+            <div class="game-image">
+                <img src="/Codigo/Img/gtav.png" alt="GTA V">
+            </div>
+            <div class="game-info-text">
+                <h2>Grand Theft Auto V</h2>
+                <p><strong>Desarrollador:</strong> Rockstar Games</p>
+                <p><strong>Año de lanzamiento:</strong> 2013</p>
+                <p><strong>Género:</strong> Acción / Mundo abierto</p>
+                <p><strong>Modo de juego:</strong> Un jugador / Multijugador</p>
+            </div>
+        </div>
+        <div class="game-extra-info">
+            <h2>INFORMACIÓN VIDEOJUEGO</h2>
+            <p><strong>De qué trata:</strong> Vive la historia de tres criminales en Los Santos. Misiones de robo, carreras y libertad total en un enorme mundo abierto.</p>
+            <p><strong>Disponible en:</strong> PC, PS3, PS4, PS5, Xbox 360, Xbox One, Xbox Series X/S.</p>
+        </div>
+        <div class="container">
+            <h2>Reseñas</h2>
+            <p><strong>Usuario 1:</strong> "La historia es genial y el modo online es adictivo."</p>
+            <p><strong>Rating:</strong> <span class="review-rating">★★★★★</span></p>
+            <p><strong>Usuario 2:</strong> "Gráficos realistas y muchas cosas por hacer. Lo juego desde hace años."</p>
+            <p><strong>Rating:</strong> <span class="review-rating">★★★★★</span></p>
+        </div>
+
+        <div id="formulario-reseña" style="display: none;">
+        <textarea id="reseña-input" placeholder="Escribe tu reseña..."></textarea>
+        <select id="rating-input">
+            <option value="1">★</option>
+            <option value="2">★★</option>
+            <option value="3">★★★</option>
+            <option value="4">★★★★</option>
+            <option value="5">★★★★★</option>
+        </select>
+        <button onclick="enviarReseña()">Enviar</button>
+    </div>
+    </div>
+</body>
+</html>

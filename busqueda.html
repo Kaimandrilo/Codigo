@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Videojuegos</title>
+    <link rel="stylesheet" href="/Codigo/Styles/style.css">
+    <link rel="stylesheet" href="/Codigo/Styles/stylesCards.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo-link">
+            <h1>XPScore</h1>
+        </a>
+
+        <nav>
+            <button onclick="iniciarSesion()">Iniciar Sesión</button>
+            <button onclick="PC()">PC</button>
+            <button onclick="Xbox()">Xbox</button>
+            <button onclick="PS()">PlayStation</button>
+            <form id="searchForm" onsubmit="return redirigirBusqueda()">
+                <input type="text" id="searchBar" placeholder="Buscar videojuegos" required>
+                <button type="submit">Buscar</button>
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        <section id="resultados">
+            <!-- Aquí se mostrarán los resultados -->
+        </section>
+    </main>
+
+    <footer>
+        <p>XPScore</p>
+        <div class="icon-container">
+            <img src="Img/gorjeo.png" alt="Icono de Twitter">
+            <img src="Img/facebook.png" alt="Icono de Facebook">
+            <img src="Img/youtube.png" alt="Icono de YouTube">
+            <img src="Img/logotipo-de-instagram.png" alt="Icono de Instagram">
+        </div>
+    </footer>
+
+    <script src="Scripts/script.js"></script>
+    <script>
+         document.addEventListener("DOMContentLoaded", function () {
+        let params = new URLSearchParams(window.location.search);
+        let query = params.get("search")?.trim().toLowerCase() || "";  // Si no existe, usa una cadena vacía
+
+        let resultadosContainer = document.getElementById("resultados");
+        resultadosContainer.innerHTML = `<h2>Resultados para: "${query}"</h2>`;
+
+        if (query !== "") {
+            let juegosRelacionados = Object.values(juegosInfo).filter(juego =>
+                juego.nombre.toLowerCase().includes(query)
+            );
+
+            if (juegosRelacionados.length > 0) {
+                juegosRelacionados.forEach(juego => {
+                    let juegoHTML = `
+                        <div class="game-card">
+                            <img src="${juego.imagen}" alt="${juego.nombre}">
+                            <div>
+                                <h3>${juego.nombre}</h3>
+                                <p>${juego.descripcion}</p>
+                                <button onclick="window.location.href='${juego.pagina}'">Ver más</button>
+                            </div>
+                        </div>
+                    `;
+                    resultadosContainer.innerHTML += juegoHTML;
+                });
+            } else {
+                resultadosContainer.innerHTML += "<p>No se encontraron resultados.</p>";
+            }
+        } else {
+            resultadosContainer.innerHTML += "<p>No se ha ingresado una búsqueda.</p>";
+        }
+    });
+    </script>
+</body>
+
+</html>

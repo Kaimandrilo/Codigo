@@ -1,0 +1,53 @@
+/* Estilo para cada tarjeta de juego */
+.game-card {
+  background-color: #e5e3e3; /* color de fondo suave */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(119, 112, 112, 0.2);
+  padding: 15px;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px; /* espacio entre imagen y texto */
+}
+
+/* Imagen del juego */
+.game-card img {
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Contenedor del texto dentro de la tarjeta */
+.game-card > div {
+  flex-grow: 1;
+}
+
+/* Título del juego */
+.game-card h3 {
+  margin: 0 0 10px 0;
+  color: black;
+  font-family: "Roboto Slab", serif;
+}
+
+/* Descripción */
+.game-card p {
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+/* Botón con estilo */
+.game-card button {
+  background-color: #3b82f6; /* azul agradable */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.game-card button:hover {
+  background-color: #2563eb; /* azul más oscuro al pasar el mouse */
+}

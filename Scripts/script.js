@@ -90,6 +90,9 @@
     function iniciarSesion() {
         window.location.href = "iniciarSesion.html";
     }
+    function CerrarSesion() {
+        window.location.href = "CerrarSesion.php";
+    }
 
     function PC() {
         window.location.href = "pc.html";

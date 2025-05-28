@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,12 +14,16 @@
 
 <body>
     <header>
-        <a href="index.html" class="logo-link">
+        <a href="index.php" class="logo-link">
             <h1>XPScore</h1>
         </a>
 
         <nav>
-            <button onclick="iniciarSesion()">Iniciar Sesión</button>
+            <?php if (isset($_SESSION['user_id'])): ?>
+            <a href="php/CerrarSesion.php"><button>Cerrar Sesión</button></a>
+            <?php else: ?>
+            <a href="iniciarSesion.html"><button>Iniciar Sesión</button></a>
+            <?php endif; ?>
             <button onclick="PC()">PC</button>
             <button onclick="Xbox()">Xbox</button>
             <button onclick="PS()">PlayStation</button>
@@ -32,7 +40,7 @@
         </section>
     </main>
 
-    <main>?
+    <main>
         <section class="seccion2" id="seccion2">
             <!-- Las noticias se cargarán dinámicamente con JavaScript -->
         </section>

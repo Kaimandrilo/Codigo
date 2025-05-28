@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'php/conexion.php'; 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre_videojuego = $_POST['searchBar'];
@@ -28,12 +29,16 @@ $miConsulta = $miPDO->prepare('SELECT * FROM videojuegos WHERE titulo LIKE :busq
 
 <body>
     <header>
-        <a href="index.html" class="logo-link">
+        <a href="index.php" class="logo-link">
             <h1>XPScore</h1>
         </a>
 
         <nav>
-            <button onclick="iniciarSesion()">Iniciar Sesión</button>
+            <?php if (isset($_SESSION['user_id'])): ?>
+            <a href="php/CerrarSesion.php"><button>Cerrar Sesión</button></a>
+            <?php else: ?>
+            <a href="iniciarSesion.html"><button>Iniciar Sesión</button></a>
+            <?php endif; ?>
             <button onclick="PC()">PC</button>
             <button onclick="Xbox()">Xbox</button>
             <button onclick="PS()">PlayStation</button>

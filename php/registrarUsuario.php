@@ -1,5 +1,6 @@
 <?php
 // insertarUsuario.php
+session_start();
 include 'conexion.php'; // conexión a tu BD
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Mostrar mensaje y redirigir con JavaScript
         echo "<script>
                 alert('Usuario registrado exitosamente.');
-                window.location.href = '../index.html';
+                window.location.href = '../index.php';
               </script>";
     } else {
         echo "Error al registrar usuario: " . $conn->error;

@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <a href="index.html" class="logo-link">
+        <a href="index.php" class="logo-link">
             <h1>XPScore</h1>
         </a>
 

@@ -1,5 +1,6 @@
 <?php
-// iniciarSesion.php
+session_start();
+
 include 'conexion.php';
 
 session_start();
@@ -22,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Mensaje y redirección a la página principal
         echo "<script>
                 alert('Inicio de sesión exitoso. ¡Bienvenido, " . addslashes($user['nombre_completo']) . "!');
-                window.location.href = 'miPerfil.php';
+                window.location.href = '../index.php';
               </script>";
     } else {
         // Credenciales incorrectas

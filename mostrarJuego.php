@@ -14,7 +14,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $videojuego_id = (int) $_POST['videojuego_id'];
 
         // ⚠️ Simulación de usuario (reemplaza con sesión real)
-        $usuario_id = $_SESSION['user_id'];
+        $usuario_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+if (!$usuario_id) {
+    echo "<p>Debes iniciar sesión para dejar una reseña.</p>";
+    exit;
+}
 
         $insertarResena = $miPDO->prepare('
             INSERT INTO resenas (comentario, calificacion, videojuego_id, usuario_id)
@@ -235,7 +239,7 @@ if ($plataformas) {
                         }?>
                     </span>
                     </p>
-                    <?php if ($_SESSION['user_id'] == $resenias['usuario_id']): ?>
+                    <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $resenias['usuario_id']): ?>
                     <form method="post" action="">
                     <input type="hidden" name="videojuego_id" value="<?= htmlspecialchars($id) ?>">
                     <input type="hidden" name="id" value="<?= $resenias['id'] ?>">

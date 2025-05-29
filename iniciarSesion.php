@@ -1,5 +1,4 @@
 <?php 
-session_start();
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +21,7 @@ session_start();
             <?php if (isset($_SESSION['user_id'])): ?>
             <a href="php/CerrarSesion.php"><button>Cerrar Sesión</button></a>
             <?php else: ?>
-            <a href="iniciarSesion.html"><button>Iniciar Sesión</button></a>
+            <a href="iniciarSesion.php"><button>Iniciar Sesión</button></a>
             <?php endif; ?>
             <button onclick="PC()">PC</button>
             <button onclick="Xbox()">Xbox</button>
@@ -60,7 +59,7 @@ session_start();
 
     <button id="btnRegister" onclick="registrarse()">Registrarse</button>
     <p> </p>
-    <button id="btnBack" onclick="volverInicio()">Volver al Inicio</button>
+    <a href="index.php"><button id="btnBack">Volver al Inicio</button></a>
 
     <footer>
         <p>XPScore</p>

@@ -22,7 +22,7 @@ session_start();
             <?php if (isset($_SESSION['user_id'])): ?>
             <a href="php/CerrarSesion.php"><button>Cerrar Sesión</button></a>
             <?php else: ?>
-            <a href="iniciarSesion.html"><button>Iniciar Sesión</button></a>
+            <a href="iniciarSesion.php"><button>Iniciar Sesión</button></a>
             <?php endif; ?>
             <button onclick="PC()">PC</button>
             <button onclick="Xbox()">Xbox</button>
@@ -33,7 +33,6 @@ session_start();
             </form>
         </nav>
     </header>
-
     <main>
         <section class="noticias" id="noticias">
             <!-- Las noticias se cargarán dinámicamente con JavaScript -->
@@ -41,11 +40,7 @@ session_start();
     </main>
 
     <main>
-        <section class="seccion2" id="seccion2">
-            <!-- Las noticias se cargarán dinámicamente con JavaScript -->
-        </section>
     </main>
-
     <footer>
         <p>XPScore</p>
         <div class="icon-container">

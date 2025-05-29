@@ -10,7 +10,9 @@ body {
 main {
     flex: 1;
 }
-
+a {
+    text-decoration: none;
+}
 /* Logo de la pagina*/
 .logo-link {
   text-decoration: none;

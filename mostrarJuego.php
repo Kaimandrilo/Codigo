@@ -135,7 +135,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <?php if (isset($_SESSION['user_id'])): ?>
             <a href="php/CerrarSesion.php"><button>Cerrar Sesión</button></a>
             <?php else: ?>
-            <a href="iniciarSesion.html"><button>Iniciar Sesión</button></a>
+            <a href="iniciarSesion.php"><button>Iniciar Sesión</button></a>
             <?php endif; ?>
             <button onclick="PC()">PC</button>
             <button onclick="Xbox()">Xbox</button>
@@ -196,19 +196,17 @@ if ($plataformas) {
                         }?>
                     </span>
                     </p>
-                    <?php if (isset($_SESSION['user_id']) == $resenias['usuario_id']): ?>
+                    <?php if ($_SESSION['user_id'] == $resenias['usuario_id']): ?>
                     <form method="post" action="">
                     <input type="hidden" name="videojuego_id" value="<?= htmlspecialchars($id) ?>">
                     <input type="hidden" name="id" value="<?= $resenias['id'] ?>">
                     <button type="submit">Eliminar Reseña</button>
                     </form>
-
                     <?php endif; ?>  
                 <?php endforeach ?>
         </div>
 
-        <div class="review-form">   
-
+        <div class="container">
         <?php if (isset($_SESSION['user_id'])): ?>
         <h2>Deja tu reseña</h2>
             <form method="post" action="">
@@ -238,8 +236,7 @@ if ($plataformas) {
                 <button type="submit">Enviar Reseña</button>
             </form>
         <?php else: ?>
-    <p>Para poder generar una reseña incia sesión</p>
-    <a href="iniciarSesion.php">Iniciar sesión</a>
+    <p>Para poder generar una reseña debes inciar sesión</p>
 <?php endif; ?>
             
         </div>

@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
     function volverInicio() {
-        window.location.href = "index.html"; // Ajusta según la ubicación de tu archivo principal
+        window.location.href = "index.php"; // Ajusta según la ubicación de tu archivo principal
     }
 
     function inicioSesion() {

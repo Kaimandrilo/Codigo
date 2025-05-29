@@ -9,9 +9,13 @@ $miPDO = new PDO ($dsn,$usuario,$clave);
 $miPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $miConsulta = $miPDO->prepare('SELECT * FROM videojuegos WHERE titulo LIKE :busqueda');
     
-    $parametro = '%' . $nombre_videojuego . '%';
-    $miConsulta->bindParam(':busqueda', $parametro, PDO::PARAM_STR);
-    $miConsulta->execute();
+$parametro = '%' . $nombre_videojuego . '%';
+$miConsulta->bindParam(':busqueda', $parametro, PDO::PARAM_STR);
+$miConsulta->execute();
+
+$miConsultaDos = $miPDO->prepare('SELECT * FROM videojuegos WHERE titulo NOT LIKE :busqueda ORDER BY RAND() LIMIT 5;');
+$miConsultaDos->bindParam(':busqueda', $parametro, PDO::PARAM_STR);
+$miConsultaDos->execute();   
 
 }
 ?>
@@ -37,7 +41,7 @@ $miConsulta = $miPDO->prepare('SELECT * FROM videojuegos WHERE titulo LIKE :busq
             <?php if (isset($_SESSION['user_id'])): ?>
             <a href="php/CerrarSesion.php"><button>Cerrar Sesión</button></a>
             <?php else: ?>
-            <a href="iniciarSesion.html"><button>Iniciar Sesión</button></a>
+            <a href="iniciarSesion.php"><button>Iniciar Sesión</button></a>
             <?php endif; ?>
             <button onclick="PC()">PC</button>
             <button onclick="Xbox()">Xbox</button>
@@ -50,7 +54,18 @@ $miConsulta = $miPDO->prepare('SELECT * FROM videojuegos WHERE titulo LIKE :busq
     </header>
 
     <main>
-    <?php foreach ( $miConsulta as $videojuego):?>
+            <?php foreach ( $miConsulta as $videojuego):?>
+            <div class="game-card">
+            <img src="<?php echo $videojuego['imagen_portada']?>" alt="<?php echo $videojuego['titulo']?>">
+            <div>
+            <h3><?php echo $videojuego['titulo']?></h3>
+            <p><?php echo $videojuego['descripcion']?></p>
+            <button onclick="window.location.href='mostrarJuego.php?id=<?php echo $videojuego['id']; ?>'">Ver más</button>
+            </div>
+            </div>
+            <?php endforeach ?>
+            <h2 style="text-align: center;">También te podría interesar:</h2>
+            <?php foreach ( $miConsultaDos as $videojuego):?>
             <div class="game-card">
             <img src="<?php echo $videojuego['imagen_portada']?>" alt="<?php echo $videojuego['titulo']?>">
             <div>

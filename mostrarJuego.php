@@ -123,6 +123,45 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         .estrellas label:hover ~ label {
             color: gold;
         }
+.btn-eliminar {
+    background-color: #e74c3c; /* Rojo intenso */
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-eliminar:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.btn-eliminar:active {
+    transform: scale(1);
+}
+.btn-enviar {
+    background-color: #3498db; /* Azul vibrante */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.btn-enviar:active {
+    transform: scale(1);
+}
+
 </style>
 </head>
 <body>
@@ -200,7 +239,7 @@ if ($plataformas) {
                     <form method="post" action="">
                     <input type="hidden" name="videojuego_id" value="<?= htmlspecialchars($id) ?>">
                     <input type="hidden" name="id" value="<?= $resenias['id'] ?>">
-                    <button type="submit">Eliminar Reseña</button>
+                    <button type="submit" class="btn-eliminar">Eliminar Reseña</button>
                     </form>
                     <?php endif; ?>  
                 <?php endforeach ?>
@@ -233,7 +272,7 @@ if ($plataformas) {
                     <label for="estrella1">★</label>
                 </div><br><br>
 
-                <button type="submit">Enviar Reseña</button>
+                <button type="submit" class="btn-enviar">Enviar Reseña</button>
             </form>
         <?php else: ?>
     <p>Para poder generar una reseña debes inciar sesión</p>
